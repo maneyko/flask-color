@@ -1,41 +1,38 @@
-from flask import Flask, redirect
-import flask.ext.color
+#!/usr/bin/env python
+
+from flask import Flask, jsonify, request, redirect
+import flaskext.colors
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-flask.ext.color.init_app(app)
+flaskext.colors.init_app(app)
+names = {'John': 'Smith',
+         'Marry': 'Peterson'}
 
 @app.route('/', methods=['GET', 'POST'])
-def hello_world():
-    import time
-    time.sleep(0.7)
-    return """
-<html>
-<img src="/favicon.ico" />
-<img src="/static/graphics.png" />
-<img src="/static/style.css" />
-<img src="/static/theme.css" />
-<img src="/static/awesome.css" />
-<img src="/auth/users/login" />
-<img src="/callback" />
-<form action="/" method="post">
-    <input type="submit" />
-</form>
+def index():
+    if request.method == 'POST':
+        first = request.form['first']
+        last = request.form['last']
+        names[first] = last
+        return redirect('/names', code=302)
+    else:
+        return """
+            <html style="padding-left: 2%;">
+                <br>
+                <a href="/names">All Names</a>
+                <br><br>
+                <form method="POST">
+                    <input type="text" name="first" placeholder="First Name"/>
+                    <input type="text" name="last" placeholder="Last Name"/>
+                    <input type="submit">
+                </form>
+            </html>
+            """
 
-</html>
-"""
-
-@app.route('/auth/users/login')
-def r():
-    return 'Hello World!'
-
-@app.route('/static/<example>')
-def lol(example):
-    return 'Hello World!'
-
-@app.route('/callback')
-def asd():
-    return redirect('/static/fffefe')
+@app.route('/names')
+def data():
+    return jsonify(names)
 
 if __name__ == '__main__':
     app.run()
