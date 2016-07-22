@@ -1,7 +1,7 @@
 Flask-Color
 ===========
 
-![](http://i.imgur.com/u5tLLho.png)
+![](doc/example.png)
 
 flask-color is an extension for Flask that improves the built-in web server with colors when debugging. Unnecessary clutter such as time or IP are hidden.
 
