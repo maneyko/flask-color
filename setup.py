@@ -2,13 +2,13 @@ from setuptools import setup
 
 
 setup(
-    name='Flask-Colors',
-    version='0.0.1',
+    name='Flask-Color',
+    version='0.2',
     url='https://github.com/maneyko/flask-color',
     license='MIT',
     author='maneyko',
     author_email='pmaneyko@gmail.com',
-    description='flask-colors is an extension for Flask that improves the built-in web server with colors when debugging. Unnecessary clutter such as time or IP are hidden.',
+    description='flask-color is an extension for Flask that improves the built-in web server with colors when debugging.',
     long_description=__doc__,
     packages=['flaskext'],
     namespace_packages=['flaskext'],
