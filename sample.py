@@ -35,4 +35,4 @@ def data():
     return jsonify(names)
 
 if __name__ == '__main__':
-    app.run(port=1234)
+    app.run()
