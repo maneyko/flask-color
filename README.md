@@ -22,10 +22,10 @@ There's an example of use in sample.py. Add two lines to your code:
 
 ```python
 # Import this extension
-import flaskext.color
+import flask_color
 
 # Initialize extension with your app.
-flaskext.color.init_app(app)
+flask_color.init_app(app)
 ```
 
 Flask configuration *DEBUG* must be True for this extension to function. You

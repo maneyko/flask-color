@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    flaskext.colors
+    flaskext.color
     ~~~~~~~~~~~~~~
     Provides colorful output in debugging mode.
 """
@@ -10,7 +10,19 @@ from time import strftime
 import werkzeug.serving
 
 def color(n, text):
-    'If terminal supports 256 colors `n` may be a number'
+    """Returns colorful text
+
+    Parameters
+    ----------
+    n: str, int
+        str:
+            One of ['RED', 'GREEN', 'YELLOW', 'BLUE',
+            'PURPLE', 'CYAN', 'WHITE', 'GRAY'].
+        int:
+            Between 0 and 255, inclusive.
+    text: str
+        Text to be colored.
+    """
     colors = {'RED': 1, 'GREEN': 2, 'YELLOW': 3, 'BLUE': 4,
               'PURPLE': 5, 'CYAN': 6, 'WHITE': 7, 'GRAY': 8}
     if type(n) is str and n in colors.keys():

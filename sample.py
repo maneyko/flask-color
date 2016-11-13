@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 from flask import Flask, jsonify, request, redirect
-import flaskext.colors
+import flask_color
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-flaskext.colors.init_app(app)
+flask_color.init_app(app)
 names = {'John': 'Smith',
          'Marry': 'Peterson'}
 
